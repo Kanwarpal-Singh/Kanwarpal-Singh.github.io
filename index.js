@@ -1,38 +1,78 @@
-// ---
-const hamMenuBtn = document.querySelector('.header__main-ham-menu-cont')
-const smallMenu = document.querySelector('.header__sm-menu')
-const headerHamMenuBtn = document.querySelector('.header__main-ham-menu')
-const headerHamMenuCloseBtn = document.querySelector(
-  '.header__main-ham-menu-close'
-)
-const headerSmallMenuLinks = document.querySelectorAll('.header__sm-menu-link')
+let i=0;
+let txt="Full Stack Web Developer.";
+let speed=75;
 
-hamMenuBtn.addEventListener('click', () => {
-  if (smallMenu.classList.contains('header__sm-menu--active')) {
-    smallMenu.classList.remove('header__sm-menu--active')
-  } else {
-    smallMenu.classList.add('header__sm-menu--active')
+typeWriter()
+
+function typeWriter() {
+    if(i < txt.length){
+      document.getElementById("user-detail-name").style.color="white";
+      document.getElementById("demo1").innerHTML += txt.charAt(i);
+      i++;
+      setTimeout(typeWriter, speed);
+    }
+    else {
+      // reset the index when it reaches the end of the text
+      i = 0;
+      // clear the text
+      document.getElementById("demo1").innerHTML = "";
+      // make the recursive call
+      document.getElementById("user-detail-name").style.color="#71e281";
+      setTimeout(typeWriter, speed);
+    }
   }
-  if (headerHamMenuBtn.classList.contains('d-none')) {
-    headerHamMenuBtn.classList.remove('d-none')
-    headerHamMenuCloseBtn.classList.add('d-none')
-  } else {
-    headerHamMenuBtn.classList.add('d-none')
-    headerHamMenuCloseBtn.classList.remove('d-none')
+
+
+  var myNav = document.getElementById('nav-menu');
+  var myNav2 = document.getElementById('main');
+  window.onscroll = function () { 
+      if ( document.documentElement.scrollTop >= 15 ) {
+          myNav.classList.add("nav-colored");
+          myNav2.classList.add("nav-colored");
+          // myNav.classList.remove("nav-transparent");
+      } 
+      else {
+          // myNav.classList.add("nav-transparent");
+          myNav.classList.remove("nav-colored");
+          myNav2.classList.remove("nav-colored");
+      }
+  };
+
+  GitHubCalendar(".calendar", "Lokendra-debug", {
+    responsive: true,
+    global_stats: false,
+    tooltips: true,
+  });
+
+  document.getElementById("resume-button-1").onclick=()=>{
+window.open("https://drive.google.com/file/d/1ej4emtKkA48Pkft0AFDmuEmdI3CJZreA/view?usp=share_link")
   }
-})
 
-for (let i = 0; i < headerSmallMenuLinks.length; i++) {
-  headerSmallMenuLinks[i].addEventListener('click', () => {
-    smallMenu.classList.remove('header__sm-menu--active')
-    headerHamMenuBtn.classList.remove('d-none')
-    headerHamMenuCloseBtn.classList.add('d-none')
-  })
-}
+  document.getElementById("resume-button-2").onclick=()=>{
+   window.open("https://drive.google.com/file/d/1ej4emtKkA48Pkft0AFDmuEmdI3CJZreA/view?usp=share_link")
+  }
+     
+  
+  function openNav() {
+    document.getElementById("mySidebar").style.width = "250px";
+    document.getElementById("main").style.display = "none";
+  }
+  
+  function closeNav() {
+    document.getElementById("mySidebar").style.width = "0";
+    document.getElementById("main").style.display= "block";
+  }
 
-// ---
-const headerLogoConatiner = document.querySelector('.header__logo-container')
+  let mode = document.getElementById("mode");
+  mode.addEventListener("click", darkMode)
 
-headerLogoConatiner.addEventListener('click', () => {
-  location.href = 'index.html'
-})
+  function darkMode(event){
+    let mode = event.target.alt;
+    if(mode == "dark"){
+      document.querySelector("body").style.backgroundColor = "rgb(21,74,129)";
+       event.target.alt = "light";
+    }else{
+      document.querySelector("body").style.backgroundColor = "#000";
+       event.target.alt = "dark";
+    }
+  }
