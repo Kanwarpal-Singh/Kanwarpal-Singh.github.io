@@ -79,7 +79,7 @@ align-items: center;
   width: 300px;
   margin: 0% 7%;
   border-radius: 600px;
-  transition:transform .6s;
+  /* transition:transform .6s; */
 top: 30%;
 left: 50%;
 
@@ -92,7 +92,7 @@ left: 50%;
 #user-detail-name{
   justify-content: center;
   font-size: 50px;
-  padding-left: 5%;
+  padding-left: 2%;
 }
 
 
@@ -104,7 +104,7 @@ hr{
 #demo {
   color: rgb(115, 230, 130);
   font-size: 50px;
-  margin: 5% 0%;
+  margin: 5% 0% 5% 0%;
 }
 
 #resume-button-2{
